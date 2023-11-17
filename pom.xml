@@ -18,6 +18,7 @@
         <allure.version>2.24.0</allure.version>
         <guice.version>7.0.0</guice.version>
         <selenium.version>4.15.0</selenium.version>
+        <selenide.version>7.0.2</selenide.version>
         <mavencompiler.version>3.11.0</mavencompiler.version>
         <alluremaven.version>2.12.0</alluremaven.version>
     </properties>
@@ -68,6 +69,11 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
             <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
     </dependencies>
 
