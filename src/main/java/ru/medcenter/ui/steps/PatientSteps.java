@@ -33,4 +33,5 @@ public class PatientSteps extends AbstractFormSteps<PatientsForm> implements Nav
     public void clickClientWithFieldCode(TestDataBuilder builder) {
         form.fieldCode(builder.getClientCode()).click();
     }
+
 }

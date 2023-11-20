@@ -6,7 +6,6 @@ import io.qameta.allure.Step;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import ru.medcenter.builders.TestDataBuilder;
 import ru.medcenter.ui.steps.LoginSteps;
 import ru.medcenter.ui.steps.MainFormSteps;
 
@@ -34,5 +33,6 @@ public abstract class BaseTest {
     protected void precondition(){
         //do nothing
     }
+
 
 }

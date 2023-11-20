@@ -18,3 +18,4 @@ public class LoginForm implements UIForm {
         return Selenide.$(By.id("P101_LOGIN"));
     }
 }
+

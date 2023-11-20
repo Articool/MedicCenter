@@ -10,3 +10,4 @@ public class MainForm implements UIForm {
         return Selenide.$(By.id("P1_RATE"));
     }
 }
+

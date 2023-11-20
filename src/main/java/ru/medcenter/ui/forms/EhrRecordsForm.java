@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+
 public class EhrRecordsForm implements UIForm {
     public SelenideElement addRecord() {
         return Selenide.$(By.xpath("//span[contains(text(),'Добавить запись ЭМК')]"));

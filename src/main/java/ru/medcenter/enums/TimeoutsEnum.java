@@ -25,3 +25,4 @@ public enum TimeoutsEnum {
         return Duration.ofSeconds(getValue());
     }
 }
+

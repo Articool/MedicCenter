@@ -13,3 +13,4 @@ public class MainFormSteps extends AbstractFormSteps<MainForm> implements Naviga
         form.rate().shouldBe(new Visible(), MAJOR.get());
     }
 }
+

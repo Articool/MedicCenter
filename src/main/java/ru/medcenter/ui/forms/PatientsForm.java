@@ -36,4 +36,5 @@ public class PatientsForm implements UIForm {
     public SelenideElement fieldCode(String code) {
         return Selenide.$(By.xpath("//a[contains(text(),'" + code + "')]"));
     }
+
 }

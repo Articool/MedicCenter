@@ -23,3 +23,4 @@ public class LoginSteps extends AbstractFormSteps<LoginForm> {
         form.buttonEnter().click();
     }
 }
+

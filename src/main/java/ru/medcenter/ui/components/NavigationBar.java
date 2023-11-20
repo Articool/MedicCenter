@@ -42,4 +42,5 @@ public interface NavigationBar {
     default void clickButtonExit() {
         exit().click();
     }
+
 }

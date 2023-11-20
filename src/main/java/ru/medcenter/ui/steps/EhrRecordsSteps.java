@@ -40,3 +40,4 @@ public class EhrRecordsSteps extends AbstractFormSteps<EhrRecordsForm> implement
         form.fieldOutcomeOfHospitalization().click();
     }
 }
+
