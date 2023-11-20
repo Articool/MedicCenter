@@ -9,9 +9,9 @@ import static ru.medcenter.enums.TimeoutsEnum.MAJOR;
 
 public class LoginSteps extends AbstractFormSteps<LoginForm> {
 
-    @Step("Ввести логин пользователя {builder.login}")
-    public void enterLogin(TestDataBuilder testDataBuilder){
-        form.login().shouldBe(new Visible(), MAJOR.get()).sendKeys(testDataBuilder.getLogin());
+    @Step("Ввести логин пользователя  {builder.login}")
+    public void enterLogin(TestDataBuilder builder) {
+        form.login().shouldBe(new Visible(), MAJOR.get()).sendKeys(builder.getLogin());
     }
 
     @Step("Ввести пароль пользователя {builder.password}")

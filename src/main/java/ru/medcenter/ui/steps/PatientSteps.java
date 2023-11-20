@@ -29,7 +29,7 @@ public class PatientSteps extends AbstractFormSteps<PatientsForm> implements Nav
         form.buttonClear().click();
     }
 
-    @Step("Нажимаем на код клиента в блоке Список пациентов")
+    @Step("Нажимаем на код клиента {builder.clientCode} в блоке Список пациентов ")
     public void clickClientWithFieldCode(TestDataBuilder builder) {
         form.fieldCode(builder.getClientCode()).click();
     }
