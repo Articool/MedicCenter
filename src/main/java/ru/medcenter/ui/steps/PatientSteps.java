@@ -2,15 +2,16 @@ package ru.medcenter.ui.steps;
 
 import com.codeborne.selenide.conditions.Visible;
 import io.qameta.allure.Step;
+import ru.medcenter.builders.TestDataBuilder;
 import ru.medcenter.ui.components.NavigationBar;
 import ru.medcenter.ui.forms.PatientsForm;
 
 import static ru.medcenter.enums.TimeoutsEnum.MAJOR;
 
 public class PatientSteps extends AbstractFormSteps<PatientsForm> implements NavigationBar {
-    @Step("Вводим код клиента")
-    public void setCode(String code) {
-        form.code().shouldBe(new Visible(), MAJOR.get()).sendKeys(code);
+    @Step("Вводим код клиента {builder.clientCode}")
+    public void setCode(TestDataBuilder builder) {
+        form.code().shouldBe(new Visible(), MAJOR.get()).sendKeys(builder.getClientCode());
     }
 
     @Step("Нажимаем на кнопку Поиск")
@@ -29,7 +30,7 @@ public class PatientSteps extends AbstractFormSteps<PatientsForm> implements Nav
     }
 
     @Step("Нажимаем на код клиента в блоке Список пациентов")
-    public void clickClientWithFieldCode(String code) {
-        form.fieldCode(code).click();
+    public void clickClientWithFieldCode(TestDataBuilder builder) {
+        form.fieldCode(builder.getClientCode()).click();
     }
 }

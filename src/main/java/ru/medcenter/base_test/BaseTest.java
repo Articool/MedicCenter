@@ -4,16 +4,18 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.google.inject.Inject;
 import io.qameta.allure.Step;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import ru.medcenter.builders.TestDataBuilder;
 import ru.medcenter.ui.steps.LoginSteps;
 import ru.medcenter.ui.steps.MainFormSteps;
 
 
 public abstract class BaseTest {
     @Inject
-    public LoginSteps loginSteps;
+    protected LoginSteps loginSteps;
     @Inject
-    public MainFormSteps mainFormSteps;
+    protected MainFormSteps mainFormSteps;
 
     @BeforeClass
     @Step("Получение драйвера")
@@ -26,6 +28,11 @@ public abstract class BaseTest {
     @Step("Закрытие драйвера")
     public void tearDown() {
         WebDriverRunner.closeWebDriver();
+    }
+
+    @AfterMethod
+    protected void precondition(){
+        //do nothing
     }
 
 }

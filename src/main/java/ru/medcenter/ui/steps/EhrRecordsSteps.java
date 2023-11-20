@@ -2,6 +2,7 @@ package ru.medcenter.ui.steps;
 
 import com.codeborne.selenide.conditions.Visible;
 import io.qameta.allure.Step;
+import ru.medcenter.builders.TestDataBuilder;
 import ru.medcenter.ui.components.NavigationBar;
 import ru.medcenter.ui.forms.EhrRecordsForm;
 
@@ -20,13 +21,13 @@ public class EhrRecordsSteps extends AbstractFormSteps<EhrRecordsForm> implement
     }
 
     @Step("Кликаем на отсортированную запись ЭМК")
-    public void clickSelectedTime(String text) {
-        form.fieldTime(text).shouldBe(new Visible(), MAJOR.get()).click();
+    public void clickSelectedTime(TestDataBuilder builder) {
+        form.fieldTime(builder.getSelectedTime()).shouldBe(new Visible(), MAJOR.get()).click();
     }
 
-    @Step("Вводим в поиск данные {text}")
-    public void setSearchText(String text) {
-        form.fieldSearch().sendKeys(text);
+    @Step("Вводим в поисковую строку инициалы пользователя {builder.searchText}")
+    public void setSearchText(TestDataBuilder builder) {
+        form.fieldSearch().sendKeys(builder.getSearchText());
     }
 
     @Step("Нажимаем на кнопку показать")
