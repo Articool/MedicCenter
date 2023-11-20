@@ -1,27 +1,26 @@
 package ru.medcenter.ui.steps;
 
-import com.google.inject.Inject;
+import com.codeborne.selenide.conditions.Visible;
 import io.qameta.allure.Step;
-import ru.medcenter.enums.ConditionTimeoutsEnum;
-import ru.medcenter.ui.forms.AbstractFormSteps;
+import ru.medcenter.builders.TestDataBuilder;
 import ru.medcenter.ui.forms.LoginForm;
 
 import static ru.medcenter.enums.TimeoutsEnum.MAJOR;
-import static ru.medcenter.enums.TimeoutsEnum.SUPER_BIG;
 
 public class LoginSteps extends AbstractFormSteps<LoginForm> {
 
-    @Step("Ввести логин")
-    public void enterLogin(){
-        form.login().waitUntilWithElement(ConditionTimeoutsEnum.VISIBLE,SUPER_BIG).sendKeys("ITQTESTFULL2");
+    @Step("Ввести логин пользователя  {builder.login}")
+    public void enterLogin(TestDataBuilder builder) {
+        form.login().shouldBe(new Visible(), MAJOR.get()).sendKeys(builder.getLogin());
     }
 
-    @Step("Ввести пароль")
-    public void enterPassword(){
-        form.password().waitUntilWithElement(ConditionTimeoutsEnum.VISIBLE,MAJOR).sendKeys("123");
+    @Step("Ввести пароль пользователя {builder.password}")
+    public void enterPassword(TestDataBuilder builder){
+        form.password().sendKeys(builder.getPassword());
     }
     @Step("Нажать кнопку войти")
     public void clickEnterButton(){
-        form.buttonEnter().waitUntilWithElement(ConditionTimeoutsEnum.VISIBLE,MAJOR).click();
+        form.buttonEnter().click();
     }
 }
+

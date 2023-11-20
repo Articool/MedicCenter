@@ -18,8 +18,11 @@
         <allure.version>2.24.0</allure.version>
         <guice.version>7.0.0</guice.version>
         <selenium.version>4.15.0</selenium.version>
+        <selenide.version>7.0.2</selenide.version>
         <mavencompiler.version>3.11.0</mavencompiler.version>
         <alluremaven.version>2.12.0</alluremaven.version>
+        <aspectj.version>1.9.20.1</aspectj.version>
+        <allure.results.directory>${project.basedir}/target/site</allure.results.directory>
     </properties>
 
     <dependencies>
@@ -69,6 +72,17 @@
             <artifactId>selenium-support</artifactId>
             <version>${selenium.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>2.24.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -82,9 +96,27 @@
                 <artifactId>allure-maven</artifactId>
                 <version>${alluremaven.version}</version>
                 <configuration>
-                    <resultsDirectory>target/allure-results</resultsDirectory>
-                    <reportVersion>2.14.0</reportVersion>
+                    <resultsDirectory>allure-results</resultsDirectory>
+                    <reportVersion>${alluremaven.version}</reportVersion>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
         </plugins>

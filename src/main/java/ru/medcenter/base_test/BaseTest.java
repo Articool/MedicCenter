@@ -1,27 +1,38 @@
 package ru.medcenter.base_test;
 
+import com.codeborne.selenide.WebDriverRunner;
+import com.google.inject.Inject;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import ru.medcenter.core.DriverManager;
+import ru.medcenter.ui.steps.LoginSteps;
+import ru.medcenter.ui.steps.MainFormSteps;
 
 
 public abstract class BaseTest {
-
-    public static WebDriver driver;
+    @Inject
+    protected LoginSteps loginSteps;
+    @Inject
+    protected MainFormSteps mainFormSteps;
 
     @BeforeClass
     @Step("Получение драйвера")
     public void initiateDriver() {
-        DriverManager.put(MainDriver.getDriver());
-        DriverManager.get().navigate().to("https://omisdev.emcmos.ru/apex/f?p=103");
+        WebDriverRunner.setWebDriver(MainDriver.getDriver());
+        WebDriverRunner.getWebDriver().navigate().to("https://omisdev.emcmos.ru/apex/f?p=103");
     }
 
     @AfterClass
     @Step("Закрытие драйвера")
     public void tearDown() {
-        DriverManager.tearDown();
+        WebDriverRunner.closeWebDriver();
     }
+
+    @AfterMethod
+    protected void precondition(){
+        //do nothing
+    }
+
 
 }
