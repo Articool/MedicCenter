@@ -3,7 +3,6 @@ package ru.medcenter.ui.steps;
 import com.codeborne.selenide.conditions.Visible;
 import io.qameta.allure.Step;
 import ru.medcenter.ui.components.NavigationBar;
-import ru.medcenter.ui.forms.AbstractFormSteps;
 import ru.medcenter.ui.forms.PatientsForm;
 
 import static ru.medcenter.enums.TimeoutsEnum.MAJOR;

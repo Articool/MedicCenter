@@ -2,7 +2,6 @@ package ru.medcenter.ui.steps;
 
 import com.codeborne.selenide.conditions.Visible;
 import io.qameta.allure.Step;
-import ru.medcenter.ui.forms.AbstractFormSteps;
 import ru.medcenter.ui.forms.LoginForm;
 
 import static ru.medcenter.enums.TimeoutsEnum.MAJOR;

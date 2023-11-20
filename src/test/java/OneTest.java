@@ -5,7 +5,6 @@ import ru.medcenter.base_test.BaseTest;
 import ru.medcenter.base_test.FrameworkModule;
 import ru.medcenter.ui.steps.EhrRecordsSteps;
 import ru.medcenter.ui.steps.PatientSteps;
-
 @Guice(modules = {FrameworkModule.class})
 public class OneTest extends BaseTest {
 
@@ -31,5 +30,6 @@ public class OneTest extends BaseTest {
         ehrRecordsSteps.clickViewButton();
         ehrRecordsSteps.clickSelectedTime("16:35");
         ehrRecordsSteps.clickOutcomeOfHospitalizationButton();
+        System.out.println();
     }
 }
